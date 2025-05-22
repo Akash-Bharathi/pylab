@@ -1,3 +1,6 @@
+#3(B) Create a graphical calendar application with buttons to navigate
+#through months and years, and display selected dates and events.
+
 import tkinter as tk
 from tkinter import ttk
 import calendar
