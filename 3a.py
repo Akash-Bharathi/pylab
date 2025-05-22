@@ -1,3 +1,6 @@
+#3(A) Create a graphical calculator with buttons for numeric inputs,
+#arithmetic operations and show the results
+
 import tkinter as tk 
 def on_button_click(char): 
     if char == 'C': 
