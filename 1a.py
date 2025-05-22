@@ -1,3 +1,8 @@
+
+#1(A) Create classes for BankAccount, SavingsAccount and
+#CheckingAccount and implement methods for deposit,
+#withdrawal, balance inquiry and interest calculation 
+
 class BankAccount: 
     def __init__(self, account_number, balance=0): 
         self.account_number = account_number 
