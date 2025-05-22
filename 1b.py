@@ -1,3 +1,10 @@
+#1(B) Design a Python class hierarchy for a library system with
+#classes for Library, Book, and Member. Implement methods
+#for book borrowing, returning, and displaying availability,
+#as well as for managing members' borrowed books list
+
+
+
 class Book: 
     def __init__(self, title, author): 
         self.title = title 
