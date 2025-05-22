@@ -1,3 +1,5 @@
+#5(a) Develop a Python program to fetch records from a table in MySQL and display the results.
+
 import mysql.connector
 
 def fetch_records_from_mysql():
