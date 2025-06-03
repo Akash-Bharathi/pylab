@@ -1,4 +1,5 @@
 #7(b) Create a client server based chat application where multiple clients can connect to a server 
+#7(b) Create a client server based chat application where multiple clients can connect to a server 
 
 #SERVER (with Nicknames Support)
 import socket
@@ -59,6 +60,7 @@ def receive():
         thread.start()
 
 receive()
+
 
 
 #CLIENT (with Nickname Support)
