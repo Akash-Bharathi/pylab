@@ -5,10 +5,10 @@ import mysql.connector
 # Connect to MySQL
 try:
     conn = mysql.connector.connect(
-        host='localhost',
-        user='your_user',
-        password='your_pass',
-        database='your_db'
+        host="localhost",
+        user="myuser",
+        password="mypassword",
+        database="your_database"
     )
     cursor = conn.cursor()
 
