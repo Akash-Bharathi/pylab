@@ -5,9 +5,9 @@ import mysql.connector
 def connect_to_mysql():
     try:
         connection = mysql.connector.connect(
-            host="your_host",
-            user="your_username",
-            password="your_password",
+            host="localhost",
+            user="myuser",
+            password="mypassword",
             database="your_database"
         )
         return connection
