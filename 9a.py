@@ -1,10 +1,12 @@
 #9(a) Create a fully funtional blogging platform where users register, create blog posts, add comments and browse through published ports
 
+#9(a) Create a fully funtional blogging platform where users register, create blog posts, add comments and browse through published ports
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Models
@@ -33,12 +35,31 @@ def index():
     posts = Post.query.all()
     return render_template('index.html', posts=posts)
 
-@app.route('/post/<int:post_id>')
+@app.route('/post/<int:post_id>', methods=['GET', 'POST'])
 def post(post_id):
     post = Post.query.get_or_404(post_id)
+    if request.method == 'POST':
+        comment_text = request.form['comment']
+        comment = Comment(text=comment_text, post_id=post.id)
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('post', post_id=post.id))
     return render_template('post.html', post=post)
 
-# Run app
+@app.route('/create', methods=['GET', 'POST'])
+def create_post():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        user_id = 1  # Default user for testing
+        post = Post(title=title, content=content, user_id=user_id)
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('create.html')
+
+# Initialize DB and run app
 if __name__ == '__main__':
-    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
