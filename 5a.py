@@ -6,9 +6,9 @@ def fetch_records_from_mysql():
     try:
         # Connect to MySQL database
         connection = mysql.connector.connect(
-            host="your_host",
-            user="your_username",
-            password="your_password",
+            host="localhost",
+            user="myuser",
+            password="mypassword",
             database="your_database"
         )
 
