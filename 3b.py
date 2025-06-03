@@ -96,7 +96,6 @@ if __name__ == "__main__":
     app = CalendarApp(root)
     root.mainloop()
 
-            self.show_calendar() 
     if __name__ == "__main__": 
         root = tk.Tk() 
         app = CalendarApp(root) 
